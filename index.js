@@ -12,13 +12,11 @@ http.createServer(function (req, res) {
 			res.write(data,function() {
 				fs.readFile("scores.txt",function(err2,data2) {
 					if(!err2) {
-						console.log(data2.join(","));
 						res.write(data2,function() {
 							res.end();
 						});
 					} else {
-						console.log("Error 2");
-						res.write("error",function() {
+						res.write("Error",function() {
 							res.end();
 						});
 					}
@@ -53,6 +51,7 @@ http.createServer(function (req, res) {
                                         s5.push(s4[i]);
                                 }
                         }
+			s5 = "[" + s5.join("],[") + "]";
                         fs.writeFile("scores.txt",s5,function() {
 				console.log("File saved.");
 			});
