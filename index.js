@@ -17,7 +17,7 @@ http.createServer(function (req, res) {
 							res.end();
 						});
 					} else {
-						console.log(err2);
+						console.log("Error 2");
 						res.write("error",function() {
 							res.end();
 						});
