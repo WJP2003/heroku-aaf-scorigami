@@ -12,7 +12,7 @@ http.createServer(function (req, res) {
 			res.write(data,function() {
 				fs.readFile("scores.txt",function(data2) {
 					if(!err2) {
-						console.log(data2);
+						console.log(data2.join(","));
 						res.write(data + data2,function() {
 							res.end();
 						});
