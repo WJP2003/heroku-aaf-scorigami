@@ -10,6 +10,7 @@ http.createServer(function (req, res) {
 		res.writeHead(200, {'Content-Type': ('text/html')});
 		res.write(data,function() {
 			fs.readFile("scores.txt",function(err2,data2) {
+				console.log(data2);
 				res.write(data + data2,function() {
 					res.end();
 				});
