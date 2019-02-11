@@ -51,6 +51,12 @@ http.createServer(function (req, res) {
                                         s5.push(s4[i]);
                                 }
                         }
+			for(var i = 0;i < s5.length;i++) {
+				if(s5[i][1] > s5[i][0]) {
+					s5[i][1] = [s5[i][0], s5[i][0] = s5[i][1]][0];
+					// b = [a, a = b][0];
+				}
+			}
 			s5 = "[" + s5.join("],[") + "]";
                         fs.writeFile("scores.txt",s5,function() {
 				console.log("File saved.");
