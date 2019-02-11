@@ -7,16 +7,20 @@ var port = process.env.PORT || 8080;
 
 http.createServer(function (req, res) {
 	fs.readFile("board.html",function(err,data) {
-		res.writeHead(200, {'Content-Type': ('text/html')});
-		res.write(data,function() {
-			fs.readFile("scores.txt",function(err2,data2) {
-				console.log(data2);
-				res.write(data + data2,function() {
-					res.end();
+		if(req.url != "/favicon.ico") {
+			res.writeHead(200, {'Content-Type': ('text/html')});
+			res.write(data,function() {
+				fs.readFile("scores.txt",function(err2,data2) {
+					console.log(data2);
+					res.write(data + data2,function() {
+						res.end();
+					});
 				});
+				res.end();
 			});
-			res.end();
-		});
+		} else {
+			res.writeHead(404);
+		}
 	});
 }).listen(port);
 
