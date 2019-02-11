@@ -23,7 +23,6 @@ http.createServer(function (req, res) {
 						});
 					}
 				});
-				res.end();
 			});
 		} else {
 			res.writeHead(404);
