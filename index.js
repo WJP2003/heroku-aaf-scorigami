@@ -12,7 +12,7 @@ http.createServer(function (req, res) {
 			res.write(data,function() {
 				fs.readFile("scores.txt",function(err2,data2) {
 					if(!err2) {
-						res.write(data2 + "]; for(var i = 0;i < arr.length;i++) { document.getElementById('js2').innerHTML += ('.col' + arr[i][0] + '.row' + arr[i][1] + ' { background: #99FF99 } \\n') } </script></html>",function() {
+						res.write(data2 + "]; for(var i = 0;i < arr.length;i++) { document.getElementById('js2').innerHTML += ('.col' + max(arr[i][0],arr[i][1]) + '.row' + min(arr[i][0],arr[i][1]) + ' { background: #99FF99 } \\n') } </script></html>",function() {
 							res.end();
 						});
 					} else {
@@ -51,15 +51,7 @@ http.createServer(function (req, res) {
                                         s5.push(s4[i]);
                                 }
                         }
-			for(var i = 0;i < s5.length;i++) {
-				if(s5[i][1] > s5[i][0]) {
-					var c = s5[i][1];
-					s5[i][1] = s5[i][0];
-					s5[i][0] = c;
-				}
-			}
 			s5 = "[" + s5.join("],[") + "]";
-			console.log(s5);
                         fs.writeFile("scores.txt",s5,function() {
 				console.log("File saved.");
 			});
