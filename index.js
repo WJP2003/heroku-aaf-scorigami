@@ -42,7 +42,9 @@ http.createServer(function (req, res) {
                                         s5.push(s4[i]);
                                 }
                         }
-                        fs.writeFile("scores.txt",s5);
+                        fs.writeFile("scores.txt",s5,function() {
+				console.log("File saved.");
+			});
                 });
         });
 })();
