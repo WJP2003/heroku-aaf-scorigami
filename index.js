@@ -12,7 +12,7 @@ http.createServer(function (req, res) {
 			res.write(data,function() {
 				fs.readFile("scores.txt",function(err2,data2) {
 					if(!err2) {
-						res.write(data2 + "]; for(var i = 0;i < arr.length;i++) { document.getElementById('js2').innerHTML += ('.col' + Math.max(arr[i][0],arr[i][1]) + '.row' + Math.min(arr[i][0],arr[i][1]) + ' { background: #99FF99 } \\n') } </script></html>",function() {
+						res.write(data2 + "var arr = ]; for(var i = 0;i < arr.length;i++) { document.getElementsByClassName('col' + Math.max(arr[i][0],arr[i][1]) + ' row' + Math.min(arr[i][0],arr[i][1]))[0].classList.remove("never"); }  </script></html>",function() {
 							res.end();
 						});
 					} else {
