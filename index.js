@@ -56,10 +56,10 @@ var getData = function() {
 
                                 var garble = s3[i][1].split("</h3>")[1].split("<a href=\"/boxscores/")[1].split("-");
                                 if(garble[0] == "preseason") {
-                                        s3[i][4] = "Preseason";
+                                        s3[i][4] = "\"Preseason\"";
                                         s3[i][5] = garble[2]; // week #
                                 } else {
-                                        s3[i][4] = "Regular Season";
+                                        s3[i][4] = "\"Regular Season\"";
                                         s3[i][5] = garble[1]; // week #
                                 }
 
