@@ -13,7 +13,7 @@ http.createServer(function (req, res) {
 			res.write(data,function() {
 				fs.readFile("scores.txt",function(err2,data2) {
 					if(!err2) {
-						res.write(data2 + "]; for(var i = 0;i < arr.length;i++) { var a = document.getElementsByClassName('col' + Math.max(arr[i][0],arr[i][1]) + ' row' + Math.min(arr[i][0],arr[i][1]))[0]; a.classList.remove('never'); a.className += ' happened' }  </script></html>",function() {
+						res.write(data2 + "]; for(var i = 0;i < arr.length;i++) { var a = document.getElementsByClassName('col' + Math.max(arr[i][0],arr[i][1]) + ' row' + Math.min(arr[i][0],arr[i][1]))[0]; a.classList.remove('never'); a.className += (arr[i][4] == "Preseason" ? ' happened-pre' : ' happened-reg') }  </script></html>",function() {
 							res.end();
 						});
 					} else {
@@ -42,7 +42,7 @@ var getData = function() {
                         var s2 = s1.split("<div class=\"card scoreboard p-6\">");
                         s2[s2.length-1] = s2[s2.length-1].split("<!-- close the section -->")[0];
                         s2.shift();
-                        
+
                         var s3 = s2;
                         for(var i = 0;i < s3.length;i++) {
                                 s3[i] = s3[i].split("<div class=\"flex items-center justify-between\">");
@@ -54,16 +54,26 @@ var getData = function() {
                                 s3[i][0] = s3[i][0].split(">");
                                 s3[i][0] = s3[i][0][s3[i][0].length-1];
 
+                                var garble = s3[i][1].split("</h3>")[1].split("<a href=\"/boxscores/")[1].split("-");
+                                if(garble[0] == "preseason") {
+                                        s3[i][4] = "Preseason";
+                                        s3[i][5] = garble[2]; // week #
+                                } else {
+                                        s3[i][4] = "Regular Season";
+                                        s3[i][5] = garble[1]; // week #
+                                }
+
                                 s3[i][1] = s3[i][1].split("</h3>")[0];
                                 s3[i][1] = s3[i][1].split(">");
                                 s3[i][1] = s3[i][1][s3[i][1].length-1];
                         }
 
-                        var s9 = "[" + s3.join("], [") + "]";
+                        var s9 = "[" + s3.join("],\n [") + "]";
                         console.log(s9);
                         fs.writeFile("scores.txt",s9,function() {
                                 console.log("File saved.");
                         });
                 });
-        });};
+        });
+};
 getData();
