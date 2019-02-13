@@ -30,7 +30,7 @@ http.createServer(function (req, res) {
 }).listen(port);
 
 var getData = function() {
-        https.get('https://en.wikipedia.org/wiki/Template:2019_AAF_schedule', function(resp) {
+        https.get('https://noextrapoints.com/', function(resp) {
                 var data = '';
 
                 resp.on('data',function(chunk) {
@@ -38,25 +38,32 @@ var getData = function() {
                 });
 
                 resp.on('end',function() {
-                        var s4 = [];
-                        for(var i = 0;i != -1;i = data.indexOf(" season\"> ",i+1)) {
-                                var s1 = data.slice(data.indexOf(" season\"> ",i)+10,data.length);
-                                var s2 = s1.slice(0,s1.indexOf("</a>"));
-                                var s3 = s2.split("–");
-                                s4.push(s3);
+                        var s1 = data.split("</nav>")[1];
+                        var s2 = s1.split("<div class=\"card scoreboard p-6\">");
+                        s2[s2.length-1] = s2[s2.length-1].split("<!-- close the section -->")[0];
+                        s2.shift();
+                        
+                        var s3 = s2;
+                        for(var i = 0;i < s3.length;i++) {
+                                s3[i] = s3[i].split("<div class=\"flex items-center justify-between\">");
+
+                                s3[i][2] = s3[i][0].slice(s3[i][0].indexOf("<h2>")+4,s3[i][0].indexOf("</h2>",s3[i][0].indexOf("<h2>")));
+                                s3[i][3] = s3[i][1].slice(s3[i][1].indexOf("<h2>")+4,s3[i][1].indexOf("</h2>",s3[i][1].indexOf("<h2>")));
+
+                                s3[i][0] = s3[i][0].split("</h3>")[0];
+                                s3[i][0] = s3[i][0].split(">");
+                                s3[i][0] = s3[i][0][s3[i][0].length-1];
+
+                                s3[i][1] = s3[i][1].split("</h3>")[0];
+                                s3[i][1] = s3[i][1].split(">");
+                                s3[i][1] = s3[i][1][s3[i][1].length-1];
                         }
-                        s4.shift();
-                        var s5 = [];
-                        for(var i = 0;i < s4.length;i++) {
-                                if(s4[i] != 'v' && (s4[i][0] > s4[i][1])) {
-                                        s5.push(s4[i]);
-                                }
-                        }
-			s5 = "[" + s5.join("],[") + "]";
-                        fs.writeFile("scores.txt",s5,function() {
-				console.log("File saved.");
-			});
+
+                        var s9 = "[" + s3.join("], [") + "]";
+                        console.log(s9);
+                        fs.writeFile("scores.txt",s9,function() {
+                                console.log("File saved.");
+                        });
                 });
-        });
-};
+        });};
 getData();
