@@ -47,8 +47,8 @@ var getData = function() {
                         for(var i = 0;i < s3.length;i++) {
                                 s3[i] = s3[i].split("<div class=\"flex items-center justify-between\">");
 
-                                s3[i][2] = s3[i][0].slice(s3[i][0].indexOf("<h2>")+4,s3[i][0].indexOf("</h2>",s3[i][0].indexOf("<h2>")));
-                                s3[i][3] = s3[i][1].slice(s3[i][1].indexOf("<h2>")+4,s3[i][1].indexOf("</h2>",s3[i][1].indexOf("<h2>")));
+                                s3[i][2] = "\"" + s3[i][0].slice(s3[i][0].indexOf("<h2>")+4,s3[i][0].indexOf("</h2>",s3[i][0].indexOf("<h2>"))) + "\"";
+                                s3[i][3] = "\"" + s3[i][1].slice(s3[i][1].indexOf("<h2>")+4,s3[i][1].indexOf("</h2>",s3[i][1].indexOf("<h2>"))) + "\"";
 
                                 s3[i][0] = s3[i][0].split("</h3>")[0];
                                 s3[i][0] = s3[i][0].split(">");
