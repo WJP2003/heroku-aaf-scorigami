@@ -6,6 +6,7 @@ var fs = require('fs');
 var port = process.env.PORT || 8080;
 
 http.createServer(function (req, res) {
+	getData();
 	fs.readFile("board.html",function(err,data) {
 		if(req.url != "/favicon.ico") {
 			res.writeHead(200, {'Content-Type': ('text/html')});
@@ -28,7 +29,7 @@ http.createServer(function (req, res) {
 	});
 }).listen(port);
 
-(function() {
+var getData = function() {
         https.get('https://en.wikipedia.org/wiki/Template:2019_AAF_schedule', function(resp) {
                 var data = '';
 
@@ -57,4 +58,5 @@ http.createServer(function (req, res) {
 			});
                 });
         });
-})();
+};
+getData();
