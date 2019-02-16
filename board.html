@@ -19,16 +19,15 @@ h1 {
 .header {
         font-size: 10pt;
 }
-table {
+table.main, table > * > * > * > table.main {
         display: table;
         border-collapse: separate;
         border-spacing: 0px;
         border-color: gray;
         margin: 0px auto;
 }
-td, th {
+table.main > * > * > td, table.legend > * > * > td, table.main > * > * > th {
         min-width: 15px;
-        width: 15px;
         height: 12px;
         line-height:12px;
         padding: 0;
@@ -36,6 +35,13 @@ td, th {
 }
 td {
         border: 0px solid black;
+}
+table.legend {
+        border: 1px solid black;
+        padding: 0.5px;
+}
+table.legend > * > * > td, table.legend > * > * > th {
+        padding: 3px;
 }
 .impossible {
         background: black;
@@ -55,13 +61,27 @@ td.happened-pre {
 <h1>
         AAF Scorigami
 </h1>
+
+<table>
+<tbody>
+<tr>
+<th class="header">Regular Season Game</th>
+<td class="happened-reg"></td>
+</tr>
+<tr>
+<th class="header">Preseason Game</th>
+<td class="happened-pre"></td>
+</tr>
+</tbody>
+</table>
+
 <table>
 <tr>
 <th class="header">Winning Team Score</th>
 </tr>
 <tr>
 <th>
-<table>
+<table class="main">
 <tbody>
 <tr>
 <th></th><th>0</th>
