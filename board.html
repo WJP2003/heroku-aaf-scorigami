@@ -7,6 +7,9 @@ AAF Scorigami
 <style id="js">
 </style>
 <style id="js2">
+table.main > * > * > td.happened-pre { visibility:hidden; }
+</style>
+<style id="js3">
 </style>
 <style>
 
@@ -91,7 +94,7 @@ tr.never {
 <tr>
 <th class="header">Regular Season Games</th>
 <td class="happened-reg"></td>
-<td class="toggle-on" onclick="this.className = 'toggle-off';document.getElementById('js2').innerHTML = 'table.main > * > * > td.happened-reg { visibility:hidden; }';this.setAttribute('onclick',document.getElementById('toggle-off-reg').getAttribute('onclick'))"></td>
+<td class="toggle-on" onclick="this.className = 'toggle-off';document.getElementById('js3').innerHTML = 'table.main > * > * > td.happened-reg { visibility:hidden; }';this.setAttribute('onclick',document.getElementById('toggle-off-reg').getAttribute('onclick'))"></td>
 </tr>
 <tr>
 <th class="header">Preseason Games</th>
@@ -101,8 +104,8 @@ tr.never {
 <tr style="display:none;">
 <td style="display:none;" id="toggle-off-pre" onclick="this.className = 'toggle-on';document.getElementById('js2').innerHTML = 'table.main > * > * > td.happened-pre { visibility:visible; }';this.setAttribute('onclick',document.getElementById('toggle-on-pre').getAttribute('onclick'))"></td>
 <td style="display:none;" id="toggle-on-pre" onclick="this.className = 'toggle-off';document.getElementById('js2').innerHTML = 'table.main > * > * > td.happened-pre { visibility:hidden; }';this.setAttribute('onclick',document.getElementById('toggle-off-pre').getAttribute('onclick'))"></td>
-<td style="display:none;" id="toggle-off-reg" onclick="this.className = 'toggle-on';document.getElementById('js2').innerHTML = 'table.main > * > * > td.happened-reg { visibility:visible; }';this.setAttribute('onclick',document.getElementById('toggle-on-reg').getAttribute('onclick'))"></td>
-<td style="display:none;" id="toggle-on-reg" onclick="this.className = 'toggle-off';document.getElementById('js2').innerHTML = 'table.main > * > * > td.happened-reg { visibility:hidden; }';this.setAttribute('onclick',document.getElementById('toggle-off-reg').getAttribute('onclick'))"></td>
+<td style="display:none;" id="toggle-off-reg" onclick="this.className = 'toggle-on';document.getElementById('js3').innerHTML = 'table.main > * > * > td.happened-reg { visibility:visible; }';this.setAttribute('onclick',document.getElementById('toggle-on-reg').getAttribute('onclick'))"></td>
+<td style="display:none;" id="toggle-on-reg" onclick="this.className = 'toggle-off';document.getElementById('js3').innerHTML = 'table.main > * > * > td.happened-reg { visibility:hidden; }';this.setAttribute('onclick',document.getElementById('toggle-off-reg').getAttribute('onclick'))"></td>
 </tr>
 </tbody>
 </table>
