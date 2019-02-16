@@ -19,7 +19,7 @@ h1 {
 .header {
         font-size: 10pt;
 }
-table.main, table > * > * > * > table.main {
+table.main, table.container {
         display: table;
         border-collapse: separate;
         border-spacing: 0px;
@@ -75,7 +75,25 @@ td.happened-pre {
 </tbody>
 </table>
 
-<table>
+<table class="container">
+<tr>
+<th>
+
+<table class="legend">
+<tbody>
+<tr>
+<th class="header">Regular Season Game</th>
+<td class="happened-reg"></td>
+</tr>
+<tr>
+<th class="header">Preseason Game</th>
+<td class="happened-pre"></td>
+</tr>
+</tbody>
+</table>
+
+</th>
+</tr>
 <tr>
 <th class="header">Winning Team Score</th>
 </tr>
