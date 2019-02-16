@@ -6,6 +6,8 @@ AAF Scorigami
 </title>
 <style id="js">
 </style>
+<style id="js2">
+</style>
 <style>
 
 html {
@@ -87,18 +89,20 @@ tr.never {
 <table class="legend">
 <tbody>
 <tr>
-<th class="header">Regular Season Game</th>
+<th class="header">Regular Season Games</th>
 <td class="happened-reg"></td>
-<td class="toggle-on" onclick="this.className = 'toggle-off';this.setAttribute('onclick',document.getElementById('toggle-off').getAttribute('onclick'))"></td>
+<td class="toggle-on" onclick="this.className = 'toggle-off';document.getElementById('js2').innerHTML = 'table.main > * > * > td.happened-reg { visibility:hidden; }';this.setAttribute('onclick',document.getElementById('toggle-off-reg').getAttribute('onclick'))"></td>
 </tr>
 <tr>
-<th class="header">Preseason Game</th>
+<th class="header">Preseason Games</th>
 <td class="happened-pre"></td>
-<td class="toggle-off" onclick="this.className = 'toggle-on';this.setAttribute('onclick',document.getElementById('toggle-on').getAttribute('onclick'))"></td>
+<td class="toggle-off" onclick="this.className = 'toggle-on';document.getElementById('js2').innerHTML = 'table.main > * > * > td.happened-pre { visibility:visible; }';this.setAttribute('onclick',document.getElementById('toggle-on-pre').getAttribute('onclick'))"></td>
 </tr>
 <tr style="display:none;">
-<td style="display:none;" id="toggle-off" onclick="this.className = 'toggle-on';this.setAttribute('onclick',document.getElementById('toggle-on').getAttribute('onclick'))"></td>
-<td style="display:none;" id="toggle-on" onclick="this.className = 'toggle-off';this.setAttribute('onclick',document.getElementById('toggle-off').getAttribute('onclick'))"></td>
+<td style="display:none;" id="toggle-off-reg" onclick="this.className = 'toggle-on';document.getElementById('js2').innerHTML = 'table.main > * > * > td.happened-pre { visibility:visible; }';this.setAttribute('onclick',document.getElementById('toggle-on-pre').getAttribute('onclick'))"></td>
+<td style="display:none;" id="toggle-on-reg" onclick="this.className = 'toggle-off';document.getElementById('js2').innerHTML = 'table.main > * > * > td.happened-pre { visibility:hidden; }';this.setAttribute('onclick',document.getElementById('toggle-off-pre').getAttribute('onclick'))"></td>
+<td style="display:none;" id="toggle-off-reg" onclick="this.className = 'toggle-on';document.getElementById('js2').innerHTML = 'table.main > * > * > td.happened-reg { visibility:visible; }';this.setAttribute('onclick',document.getElementById('toggle-on-pre').getAttribute('onclick'))"></td>
+<td style="display:none;" id="toggle-on-reg" onclick="this.className = 'toggle-off';document.getElementById('js2').innerHTML = 'table.main > * > * > td.happened-reg { visibility:hidden; }';this.setAttribute('onclick',document.getElementById('toggle-off-pre').getAttribute('onclick'))"></td>
 </tr>
 </tbody>
 </table>
