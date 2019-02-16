@@ -13,7 +13,7 @@ http.createServer(function (req, res) {
 			res.write(data,function() {
 				fs.readFile("scores.txt",function(err2,data2) {
 					if(!err2) {
-						res.write(data2 + "]; var klosing = 0; var kwinning = 0; for(var i = 0;i < arr.length;i++) { klosing = (Math.min(arr[i][0],arr[i][1]) > klosing ? Math.min(arr[i][0],arr[i][1]) : klosing); kwinning = (Math.max(arr[i][0],arr[i][1]) > kwinning ? Math.max(arr[i][0],arr[i][1]) : kwinning); var a = document.getElementsByClassName('col' + Math.max(arr[i][0],arr[i][1]) + ' row' + Math.min(arr[i][0],arr[i][1]))[0]; a.classList.remove('never'); a.className += (arr[i][4] == 'Preseason' ? ' happened-pre' : ' happened-reg'); } for(var i = document.getElementsByClassName('main')[0].lastElementChild.lastElementChild.lastElementChild.innerHTML;i > klosing;i--) { document.getElementsByClassName('main')[0].lastElementChild.childNodes[i-1].className += ' never'; } } </script></html>",function() {
+						res.write(data2 + "]; var klosing = 0; var kwinning = 0; for(var i = 0;i < arr.length;i++) { klosing = (Math.min(arr[i][0],arr[i][1]) > klosing ? Math.min(arr[i][0],arr[i][1]) : klosing); kwinning = (Math.max(arr[i][0],arr[i][1]) > kwinning ? Math.max(arr[i][0],arr[i][1]) : kwinning); var a = document.getElementsByClassName('col' + Math.max(arr[i][0],arr[i][1]) + ' row' + Math.min(arr[i][0],arr[i][1]))[0]; a.classList.remove('never'); a.className += (arr[i][4] == 'Preseason' ? ' happened-pre' : ' happened-reg'); } for(var i = document.getElementsByClassName('main')[0].lastElementChild.lastElementChild.lastElementChild.innerHTML;i > klosing;i--) { document.getElementsByClassName('main')[0].lastElementChild.childNodes[i-1].className += ' never'; } </script></html>",function() {
 							res.end();
 						});
 					} else {
