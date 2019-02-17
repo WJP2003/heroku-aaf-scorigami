@@ -6,7 +6,6 @@ var fs = require('fs');
 var port = process.env.PORT || 8080;
 
 http.createServer(function (req, res) {
-	getData();
 	fs.readFile("board.html",function(err,data) {
 		if(req.url != "/favicon.ico") {
 			res.writeHead(200, {'Content-Type': ('text/html')});
@@ -15,6 +14,7 @@ http.createServer(function (req, res) {
 					if(!err2) {
 						res.write(data2 + "]; var klosing = 0; var kwinning = 0; for(var i = 0;i < arr.length;i++) { klosing = (Math.min(arr[i][0],arr[i][1]) > klosing ? Math.min(arr[i][0],arr[i][1]) : klosing); kwinning = (Math.max(arr[i][0],arr[i][1]) > kwinning ? Math.max(arr[i][0],arr[i][1]) : kwinning); var a = document.getElementsByClassName('col' + Math.max(arr[i][0],arr[i][1]) + ' row' + Math.min(arr[i][0],arr[i][1]))[0]; a.classList.remove('never'); a.className += (arr[i][4] == 'Preseason' ? ' happened-pre' : ' happened-reg'); } </script></html>",function() {
 							res.end();
+							getData();
 						});
 					} else {
 						res.write("Error",function() {
