@@ -62,12 +62,12 @@ var getData = function() {
                                         s3[i][4] = "\"Regular Season\"";
                                         s3[i][5] = garble[1]; // week #
                                 }
+                                s3[i][6] = "\"noextrapoints.com/boxscores/" + s3[i][1].split("</h3>")[1].split("<a href=\"/boxscores/")[1].split("\"")[0] + "\"";
 
                                 s3[i][1] = s3[i][1].split("</h3>")[0];
                                 s3[i][1] = s3[i][1].split(">");
                                 s3[i][1] = s3[i][1][s3[i][1].length-1];
-                        }
-
+			}
                         var s9 = "[" + s3.join("],\n [") + "]";
                         console.log(s9);
                         fs.writeFile("scores.txt",s9,function() {
